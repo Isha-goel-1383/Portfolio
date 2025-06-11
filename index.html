@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Isha Goel | Data Science & Operations Enthusiast</title>
+  <meta name="description" content="Data Science and Operations enthusiast with strong analytical skills. B.Sc. Computer Science graduate from Delhi University.">
+  <meta name="keywords" content="Data Science, Operations, Analytics, SQL, Python, Excel">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --bg-light: #ffffff;
+      --bg-dark: #121212;
+      --text-neutral-light: #6b7280;
+      --text-neutral-dark: #9ca3af;
+      --text-dark-light: #111827;
+      --text-dark-dark: #e5e7eb;
+      --primary-black: #000000;
+      --primary-hover: #222222;
+      --card-bg: #ffffff;
+      --border-radius: 0.75rem;
+      --shadow-light: 0 8px 24px rgba(0,0,0,0.06);
+      --spacing-section-vertical: 4rem;
+      --container-max-width: 1200px;
+      --transition-time: 0.3s;
+      --accent-color: #3b82f6; /* Blue color */
+      --accent-light: #93c5fd;
+    }
+
+    /* Dark theme variables */
+    [data-theme="dark"] {
+      --bg-light: #121212;
+      --bg-dark: #1e1e1e;
+      --text-neutral-light: #9ca3af;
+      --text-neutral-dark: #6b7280;
+      --text-dark-light: #e5e7eb;
+      --text-dark-dark: #111827;
+      --primary-black: #ffffff;
+      --primary-hover: #dddddd;
+      --card-bg: #1e1e1e;
+      --shadow-light: 0 8px 24px rgba(0,0,0,0.2);
+      --accent-color: #60a5fa;
+      --accent-light: #1e40af;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0; 
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-neutral-light);
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    a {
+      color: var(--primary-black);
+      text-decoration: none;
+      transition: color var(--transition-time);
+    }
+    a:hover,
+    a:focus-visible {
+      color: var(--accent-color);
+      outline: none;
+      text-decoration: underline;
+    }
+
+    .container {
+      width: 90%;
+      max-width: var(--container-max-width);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: var(--bg-light);
+      box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+      z-index: 1000;
+      transition: background-color 0.4s ease;
+    }
+    nav {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.75rem;
+      color: var(--accent-color);
+      letter-spacing: 0.05em;
+      user-select: none;
+      transition: color 0.4s ease;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.25rem;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-dark-light);
+      transition: color 0.4s ease;
+    }
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+      transition: color var(--transition-time);
+      color: var(--primary-black);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent-color);
+      border-radius: 3px;
+      transition: width var(--transition-time);
+    }
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      width: 100%;
+    }
+
+    main {
+      padding-top: var(--spacing-section-vertical);
+      padding-bottom: var(--spacing-section-vertical);
+      max-width: var(--container-max-width);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    section {
+      margin-bottom: var(--spacing-section-vertical);
+      scroll-margin-top: 6.5rem;
+    }
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--primary-black);
+      margin-bottom: 1rem;
+      text-align: center;
+      transition: color 0.4s ease;
+    }
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      color: var(--primary-black);
+      margin-bottom: 2rem;
+      position: relative;
+      transition: color 0.4s ease;
+    }
+    h2::after {
+      content: "";
+      display: block;
+      margin: 0.5rem auto 0;
+      width: 5rem;
+      height: 3px;
+      background: var(--accent-color);
+      border-radius: 9px;
+      transition: background 0.4s ease;
+    }
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-neutral-light);
+      max-width: 900px;
+      text-align: center;
+      transition: color 0.4s ease;
+    }
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      font-size: 1.125rem;
+      border-radius: var(--border-radius);
+      border: none;
+      cursor: pointer;
+      user-select: none;
+      box-shadow: var(--shadow-light);
+      transition: background-color var(--transition-time), transform var(--transition-time), box-shadow var(--transition-time);
+      margin-top: 1.5rem;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background-color: var(--primary-hover);
+      outline: none;
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 5rem;
+      position: relative;
+    }
+    .hero-text {
+      flex: 1 1 400px;
+      max-width: 600px;
+    }
+    .hero-image {
+      flex: 0 0 320px;
+      max-width: 320px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-light);
+      overflow: hidden;
+      border: 4px solid var(--accent-color);
+      transition: box-shadow var(--transition-time), transform var(--transition-time), border-color 0.4s ease;
+      cursor: default;
+    }
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--border-radius);
+    }
+    .hero-image:hover,
+    .hero-image:focus-visible {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      transform: scale(1.04);
+      outline: none;
+    }
+    
+    /* Decorative elements */
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 200px;
+      height: 200px;
+      background-color: var(--accent-light);
+      opacity: 0.2;
+      border-radius: 50%;
+      z-index: -1;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background-color: var(--accent-light);
+      opacity: 0.2;
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    /* Cards */
+    .card {
+      background-color: var(--card-bg);
+      padding: 2rem 2.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-light);
+      margin-bottom: 2.5rem;
+      transition: box-shadow var(--transition-time), transform var(--transition-time), background-color 0.4s ease;
+      border-left: 4px solid var(--accent-color);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+    }
+    .card:hover,
+    .card:focus-within {
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      transform: translateY(-4px);
+      outline: none;
+    }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: var(--primary-black);
+      transition: color 0.4s ease;
+    }
+    ul {
+      padding-left: 1.25rem;
+      margin-top: 0;
+      color: var(--text-neutral-light);
+      transition: color 0.4s ease;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    /* Grid for skills */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+      gap: 2.5rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Skills progress bars */
+    .skill-category {
+      margin-bottom: 1.5rem;
+    }
+    .skill-name {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--primary-black);
+    }
+    .progress-bar {
+      height: 8px;
+      background-color: rgba(0,0,0,0.1);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    [data-theme="dark"] .progress-bar {
+      background-color: rgba(255,255,255,0.1);
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+      border-radius: 4px;
+      transition: width 1s ease-in-out;
+    }
+
+    /* Education Section */
+    .education-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 auto;
+      max-width: 900px;
+      background-color: var(--card-bg);
+      box-shadow: var(--shadow-light);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+    }
+    .education-table th, 
+    .education-table td {
+      padding: 1rem 1.5rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+    }
+    [data-theme="dark"] .education-table th,
+    [data-theme="dark"] .education-table td {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .education-table th {
+      background-color: var(--accent-color);
+      color: white;
+      font-weight: 600;
+    }
+    .education-table tr:last-child td {
+      border-bottom: none;
+    }
+    .education-table tr:hover td {
+      background-color: rgba(0,0,0,0.03);
+    }
+    [data-theme="dark"] .education-table tr:hover td {
+      background-color: rgba(255,255,255,0.03);
+    }
+
+    /* Achievements Section */
+    .achievements {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .achievement-card {
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-light);
+      transition: box-shadow var(--transition-time), transform var(--transition-time), background-color 0.4s ease;
+      border-top: 3px solid var(--accent-color);
+      text-align: center;
+    }
+    .achievement-card:hover {
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      transform: translateY(-5px);
+      outline: none;
+    }
+    .achievement-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-black);
+      transition: color 0.4s ease;
+    }
+    .achievement-card p {
+      color: var(--text-neutral-light);
+      margin-bottom: 0;
+    }
+
+    /* Contact Info */
+    .contact-info {
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-dark-light);
+      transition: color 0.4s ease;
+    }
+    .contact-info a {
+      color: var(--primary-black);
+      text-decoration: underline;
+    }
+    .contact-info a:hover,
+    .contact-info a:focus-visible {
+      color: var(--accent-color);
+      outline: none;
+    }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--accent-color);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: var(--shadow-light);
+      transition: background-color var(--transition-time), color var(--transition-time), transform var(--transition-time);
+      z-index: 1100;
+      border: none;
+    }
+    .theme-toggle:hover,
+    .theme-toggle:focus-visible {
+      background-color: var(--primary-hover);
+      outline: none;
+      box-shadow: 0 0 15px var(--primary-hover);
+      transform: scale(1.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text,
+      .hero-image {
+        max-width: 100%;
+      }
+      h1 {
+        font-size: 3.25rem;
+      }
+      h2 {
+        font-size: 2.5rem;
+      }
+      .nav-links {
+        gap: 1.5rem;
+      }
+      .education-table {
+        display: block;
+        overflow-x: auto;
+      }
+      .hero::before,
+      .hero::after {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container" aria-label="Primary Navigation">
+      <div class="logo" tabindex="0">Isha Goel</div>
+      <div class="nav-links" role="navigation" aria-label="Main Navigation">
+        <a href="#about" tabindex="0">About</a>
+        <a href="#education" tabindex="0">Education</a>
+        <a href="#skills" tabindex="0">Skills</a>
+        <a href="#experience" tabindex="0">Experience</a>
+        <a href="#achievements" tabindex="0">Achievements</a>
+        <a href="#contact" tabindex="0">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" aria-label="Introduction and profile image">
+      <div class="hero-text">
+        <h1>Data Science & Operations Enthusiast</h1>
+        <p>B.Sc. Computer Science graduate passionate about transforming data into actionable insights and optimizing operational processes. Strong analytical skills with expertise in SQL, Python, and Excel.</p>
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});" aria-label="Contact Isha Goel">Get in Touch</button>
+      </div>
+      <div class="hero-image" tabindex="0" aria-label="Portrait image of Isha Goel">
+        <img src="ISHA_IMAGE.png" alt="Professional portrait of Isha Goel" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="about" class="container">
+      <h2>About Me</h2>
+      <article class="card" tabindex="0">
+        <p>I'm Isha Goel, a recent B.Sc. (Hons) Computer Science graduate from Atma Ram Sanatan Dharma College, University of Delhi with an 8.811 GPA. While I'm just beginning my journey in data science and operations, I'm deeply passionate about leveraging data to drive decision-making and improve processes.</p>
+        <p>My academic background has equipped me with strong analytical thinking and problem-solving skills. I'm particularly interested in data analysis, process optimization, and the intersection between technology and business operations. I'm eager to apply my skills in real-world scenarios and continue learning in these dynamic fields.</p>
+      </article>
+    </section>
+
+    <section id="education" class="container">
+      <h2>Education</h2>
+      <div class="card" tabindex="0">
+        <table class="education-table" aria-label="Education history">
+          <thead>
+            <tr>
+              <th>Qualification</th>
+              <th>Institution</th>
+              <th>Board/University</th>
+              <th>Score</th>
+              <th>Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>B.Sc (Hons) Computer Science</td>
+              <td>Atma Ram Sanatan Dharma College</td>
+              <td>University of Delhi</td>
+              <td>8.811 GPA</td>
+              <td>2024</td>
+            </tr>
+            <tr>
+              <td>Class XII (PCM)</td>
+              <td>D.R. International School</td>
+              <td>CBSE</td>
+              <td>96.4%</td>
+              <td>2021</td>
+            </tr>
+            <tr>
+              <td>Class X</td>
+              <td>D.R. International School</td>
+              <td>CBSE</td>
+              <td>94.5%</td>
+              <td>2019</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="skills" class="container">
+      <h2>Skills & Competencies</h2>
+      <div class="grid-2">
+        <article class="card" tabindex="0" aria-label="Technical skills">
+          <h3>Technical Skills</h3>
+          
+          <div class="skill-category">
+            <div class="skill-name">
+              <span>Python</span>
+              <span>80%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 80%"></div>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <div class="skill-name">
+              <span>SQL</span>
+              <span>75%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 75%"></div>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <div class="skill-name">
+              <span>Excel</span>
+              <span>85%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 85%"></div>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <div class="skill-name">
+              <span>Data Analysis</span>
+              <span>70%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 70%"></div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" tabindex="0" aria-label="Professional skills">
+          <h3>Professional Skills</h3>
+          <ul>
+            <li><strong>Analytical Thinking:</strong> Breaking down complex problems</li>
+            <li><strong>Process Optimization:</strong> Identifying efficiency improvements</li>
+            <li><strong>Data Visualization:</strong> Presenting insights clearly</li>
+            <li><strong>Communication:</strong> Fluent in English and Hindi</li>
+            <li><strong>Team Collaboration:</strong> Cross-functional teamwork</li>
+            <li><strong>Problem Solving:</strong> Structured approach to challenges</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="container">
+      <h2>Professional Experience</h2>
+      <article class="card" tabindex="0">
+        <h3>Education Counselor & Subject Matter Expert</h3>
+        <p><em>EduDag, Kailash Colony | June 2024 – December 2024</em></p>
+        <ul>
+          <li>Analyzed student performance data to identify patterns and provide personalized improvement strategies</li>
+          <li>Optimized counseling processes by developing structured frameworks for student evaluation</li>
+          <li>Maintained detailed records of student interactions and progress for data-driven decision making</li>
+          <li>Collaborated with internal teams to refine program offerings based on student feedback data</li>
+        </ul>
+      </article>
+      <article class="card" tabindex="0">
+        <h3>Tech Intern</h3>
+        <p><em>Student for Seva, ARSD College | March 2022 – September 2022</em></p>
+        <ul>
+          <li>Maintained and organized volunteer records using structured data systems</li>
+          <li>Assisted in streamlining administrative processes through documentation</li>
+          <li>Supported event planning with logistical coordination and data tracking</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="achievements" class="container">
+      <h2>Achievements & Leadership</h2>
+      <div class="achievements">
+        <article class="achievement-card" tabindex="0">
+          <h3>District Topper</h3>
+          <p>Hindustan Olympiad | Top 1% nationwide</p>
+        </article>
+        <article class="achievement-card" tabindex="0">
+          <h3>Joint Secretary</h3>
+          <p>Tech-A-Thon, ARSD College | Organized tech fest with 300+ participants</p>
+        </article>
+        <article class="achievement-card" tabindex="0">
+          <h3>Member</h3>
+          <p>UJJALO NGO | 100+ volunteer hours</p>
+        </article>
+        <article class="achievement-card" tabindex="0">
+          <h3>IT Cell Member</h3>
+          <p>ARSD College | Supported IT initiatives</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <h2>Contact Information</h2>
+      <div class="contact-info" tabindex="0">
+        <p><strong>Email:</strong> <a href="mailto:Goelisha1383@gmail.com" aria-label="Email Isha Goel">Goelisha1383@gmail.com</a></p>
+        <p><strong>Location:</strong> Munirka, New Delhi, India</p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/isha-goel-bb416a247" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile for Isha Goel">linkedin.com/in/isha-goel-bb416a247</a></p>
+      </div>
+    </section>
+  </main>
+
+  <button class="theme-toggle" aria-label="Toggle Dark Mode" title="Toggle Dark Mode" id="theme-toggle">🌙</button>
+
+  <footer class="container" style="text-align:center; padding:2rem 0; color: var(--text-neutral-light); user-select:none; transition: color 0.4s ease;">
+    &copy; <span id="current-year">2024</span> Isha Goel. All rights reserved.
+  </footer>
+
+  <script>
+    // Theme toggle script
+    const toggleBtn = document.getElementById('theme-toggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggleBtn.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        toggleBtn.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    // Initialize theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else if (prefersDarkScheme.matches) {
+      setTheme('dark');
+    }
+
+    // Toggle theme
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        setTheme('light');
+      } else {
+        setTheme('dark');
+      }
+    });
+
+    // Update copyright year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Animate progress bars on scroll
+    const progressBars = document.querySelectorAll('.progress-fill');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const width = entry.target.style.width;
+          entry.target.style.width = '0';
+          setTimeout(() => {
+            entry.target.style.width = width;
+          }, 100);
+        }
+      });
+    }, {threshold: 0.5});
+    
+    progressBars.forEach(bar => {
+      observer.observe(bar);
+    });
+  </script>
+</body>
+</html>
